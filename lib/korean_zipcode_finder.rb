@@ -14,7 +14,7 @@ module KoreanZipcodeFinder
   
   def self.find_zipcode(dong_name)
     iconv = Iconv.new("euc-kr", "utf-8//IGNORE")
-    keyword = iconv.conv(dong_name)
+    keyword = iconv.conv(dong_name.strip)
 
     response, xml_doc = Net::HTTP.post_form URI.parse(Configuration::URL), {'regkey' => api_key, 'target' => 'post', 'query' => keyword}
     nodes = Nokogiri::XML(xml_doc).css("item")
