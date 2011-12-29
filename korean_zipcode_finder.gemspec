@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["KunHa"]
   s.email       = ["potato9@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{TODO: Korean zipcode finder}
+  s.description = %q{TODO: Korean zipcode finder}
 
   s.rubyforge_project = "korean_zipcode_finder"
 
@@ -17,4 +17,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  
+  s.add_runtime_dependency 'nokogiri'
 end

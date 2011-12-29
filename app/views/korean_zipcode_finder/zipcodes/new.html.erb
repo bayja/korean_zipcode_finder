@@ -1,0 +1,12 @@
+<div class="zipcode_box">
+  <div><%= link_to '닫기', '#', :class => "close_modal_popup" %></div>
+  
+  <%= form_tag("/korean_zipcode_finder/zipcodes/search", :method => 'get', :class => "find_zipcode_form") do %>
+    <%= label_tag "동/읍/면" %>
+    <%= text_field_tag "dong" %>
+    <%= submit_tag '우편번호 찾기' %>
+  <% end %>
+  
+  <div class="zipcode_list_box"></div>
+</div>
+
