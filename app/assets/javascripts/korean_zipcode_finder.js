@@ -1,7 +1,3 @@
-$(function() {
-  new KoreanZipcodeFinder;
-});
-
 var KoreanZipcodeFinder;
 
 KoreanZipcodeFinder = (function() {
