@@ -1,8 +1,8 @@
 Korean Zipcode Finder
 =====================
 
-인터넷 우체국 제공 우편번호 찾기 API를 사용한 우편번호 찾기 gem
-http://biz.epost.go.kr/eportal/custom/custom_10.jsp?subGubun=sub_4&subGubun_1=cum_20
+* 인터넷 우체국 제공 우편번호 찾기 API를 사용한 우편번호 찾기 gem
+* http://biz.epost.go.kr/eportal/custom/custom_10.jsp?subGubun=sub_4&subGubun_1=cum_20
 
 
 사용법 (Usage)
@@ -24,7 +24,8 @@ KoreanZipcodeFinder.find_zipcode('망원동')
 Rails 3 Engine
 --------------
 
-** 기본 설정 **
+**기본 설정**
+
 * Gemfile에 추가
 * Rails config 폴더에 api_key config 추가 (위의 경우와 동일)
 * application.js / application.css.scss 에서 파일 로드
@@ -37,7 +38,8 @@ Rails 3 Engine
 *= require korean_zipcode_finder
 ```
 
-** html 마크업 **
+**html 마크업**
+
 * ".address" class를 가진 wrapper 속에 ".zipcode_01", ".zipcode_02", ".address_01" 클라스를 가진 text_area 생성
 * ".find_zipcode_btn" class를 가진 우편번호 찾기 링크
 
@@ -50,7 +52,7 @@ Rails 3 Engine
 </div>
 ```
 
-** 적용하기 **
+**적용하기**
 
 ``` javascript
 $(function() {
