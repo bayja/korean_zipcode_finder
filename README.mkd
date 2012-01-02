@@ -31,11 +31,11 @@ Rails 3 Engine
 * application.js / application.css.scss 에서 파일 로드
 
 ``` javascript
-//= require korean_zipcode_finder
+//= require korean_zipcode_finder/core
 ```
 
 ``` css
-*= require korean_zipcode_finder
+*= require korean_zipcode_finder/core
 ```
 
 **html 마크업**

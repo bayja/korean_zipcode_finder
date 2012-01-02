@@ -13,9 +13,9 @@ KoreanZipcodeFinder = (function() {
     $(".address_area .zipcode_02").live('click', this.init );
     $(".address_area .find_zipcode_btn").live('click', this.init );
 
-    $(".modal_wrapper .find_zipcode_form").live("submit", this.find_zipcode_handler );
-    $(".modal_wrapper .zipcode_select").live("click", this.zipcode_selected_handler );
-    $(".modal_wrapper .close_modal_popup").live('click', this.close_modal_handler );
+    $(".korean_zipcode_finder_modal_wrapper .find_zipcode_form").live("submit", this.find_zipcode_handler );
+    $(".korean_zipcode_finder_modal_wrapper .zipcode_select").live("click", this.zipcode_selected_handler );
+    $(".korean_zipcode_finder_modal_wrapper .close_modal_popup").live('click', this.close_modal_handler );
   }
 
   KoreanZipcodeFinder.prototype.init = function(e) {
@@ -23,10 +23,10 @@ KoreanZipcodeFinder = (function() {
     this.current_address_area = $(e.target).closest(".address_area");
     
     // zipcode modal 띄우기
-    $('body').append( $('<div/>', {'class': 'modal_bg'}) );
+    $('body').append( $('<div/>', {'class': 'korean_zipcode_finder_modal_bg'}) );
     $.get("/korean_zipcode_finder/zipcodes/new", function(data) { 
-      $('body').append( $('<div/>', {'class': 'modal_wrapper'}) );
-      $(".modal_wrapper").append(data);
+      $('body').append( $('<div/>', {'class': 'korean_zipcode_finder_modal_wrapper'}) );
+      $(".korean_zipcode_finder_modal_wrapper").append(data);
     });
     
     // escape key handler
@@ -37,8 +37,8 @@ KoreanZipcodeFinder = (function() {
   
   // modal event handers
   KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
-    $(".modal_bg").remove();
-    $(".modal_wrapper").remove();
+    $(".korean_zipcode_finder_modal_bg").remove();
+    $(".korean_zipcode_finder_modal_wrapper").remove();
     $(document).off('keydown');
     e.preventDefault();
   }

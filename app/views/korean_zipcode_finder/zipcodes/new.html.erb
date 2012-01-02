@@ -1,5 +1,5 @@
 <div class="zipcode_box">
-  <div><%= link_to '닫기', '#', :class => "close_modal_popup" %></div>
+  <div class="close_button"><%= link_to 'x', '#', :class => "close_modal_popup" %></div>
   
   <%= form_tag("/korean_zipcode_finder/zipcodes/search", :method => 'get', :class => "find_zipcode_form") do %>
     <%= label_tag "동/읍/면" %>
