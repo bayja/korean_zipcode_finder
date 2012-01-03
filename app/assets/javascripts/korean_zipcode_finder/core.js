@@ -37,6 +37,7 @@ KoreanZipcodeFinder = (function() {
   
   // modal event handers
   KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
+    console.log("close button clicked");
     $(".korean_zipcode_finder_modal_bg").remove();
     $(".korean_zipcode_finder_modal_wrapper").remove();
     $(document).off('keydown');
@@ -55,12 +56,10 @@ KoreanZipcodeFinder = (function() {
   }
   
   KoreanZipcodeFinder.prototype.zipcode_selected_handler = function(e) {
-    var $zipcode_node = $(e.target).closest(".zipcode_node");
-
     // .data() method를 사용할 경우 zipcode값이 integer로 들어온다. 001이 1로 들어옴zipcode 
-    var zipcode_01 = $zipcode_node.attr('data-zipcode01');
-    var zipcode_02 = $zipcode_node.attr('data-zipcode02');
-    var address_01 = $zipcode_node.data('address01');
+    var zipcode_01 = $(e.target).attr('data-zipcode01');
+    var zipcode_02 = $(e.target).attr('data-zipcode02');
+    var address_01 = $(e.target).data('address01');
     
     this.current_address_area.find(".zipcode_01").val(zipcode_01);
     this.current_address_area.find(".zipcode_02").val(zipcode_02);

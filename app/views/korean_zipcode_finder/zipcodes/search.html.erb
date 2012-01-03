@@ -1,8 +1,8 @@
 <% if @zipcodes.present? %>
 
-  <% @zipcodes.each do |zipcode| %>
-    <div class="zipcode_node" data-zipcode01="<%= zipcode.zipcode_01 %>" data-zipcode02="<%= zipcode.zipcode_02 %>" data-address01="<%= zipcode.address %>">
-       <%= link_to '선택', '#', :class => "zipcode_select" %> [<%= zipcode.zipcode_01 %>-<%= zipcode.zipcode_02 %>] <%= zipcode.original_address %>
+  <% @zipcodes.each_with_index do |zipcode, i| %>
+    <div class="zipcode_select zipcode_node <%= i%2==0 ? 'odd' : 'even' %>" data-zipcode01="<%= zipcode.zipcode_01 %>" data-zipcode02="<%= zipcode.zipcode_02 %>" data-address01="<%= zipcode.address %>">
+       [<%= zipcode.zipcode_01 %>-<%= zipcode.zipcode_02 %>] <%= zipcode.original_address %>
     </div>
   <% end %>
 
