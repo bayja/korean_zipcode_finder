@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["KunHa"]
   s.email       = ["potato9@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Korean zipcode finder}
-  s.description = %q{TODO: Korean zipcode finder}
+  s.summary     = %q{Korean zipcode finder}
+  s.description = %q{Korean zipcode finder}
 
   s.rubyforge_project = "korean_zipcode_finder"
 
