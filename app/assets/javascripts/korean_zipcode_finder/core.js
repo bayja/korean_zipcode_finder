@@ -37,7 +37,6 @@ KoreanZipcodeFinder = (function() {
   
   // modal event handers
   KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
-    console.log("close button clicked");
     $(".korean_zipcode_finder_modal_bg").remove();
     $(".korean_zipcode_finder_modal_wrapper").remove();
     $(document).off('keydown');
