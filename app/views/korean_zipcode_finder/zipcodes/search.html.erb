@@ -1,14 +1,24 @@
 <% if @zipcodes.present? %>
 
   <% @zipcodes.each_with_index do |zipcode, i| %>
-    <div class="zipcode_select zipcode_node <%= i%2==0 ? 'odd' : 'even' %>" data-zipcode01="<%= zipcode.zipcode_01 %>" data-zipcode02="<%= zipcode.zipcode_02 %>" data-address01="<%= zipcode.address %>">
-       [<%= zipcode.zipcode_01 %>-<%= zipcode.zipcode_02 %>] <%= zipcode.original_address %>
-    </div>
+    <tr class="zipcode_select zipcode_node" data-zipcode01="<%= zipcode.zipcode_01 %>" data-zipcode02="<%= zipcode.zipcode_02 %>" data-address01="<%= zipcode.address %>">
+    	<td>
+    		[<%= zipcode.zipcode_01 %>-<%= zipcode.zipcode_02 %>]
+    	</td>
+    	<td>
+    		<%= zipcode.original_address %>
+    	</td>
+    </tr>
   <% end %>
 
 <% else %>
-  <div class="no_zipcode_found">
-    검색된 우편번호가 없습니다.
-  </div>
+
+  <tr class="no_zipcode_found">
+  	<td>
+  		검색된 우편번호가 없습니다.
+  	</td>
+  </tr>
+
 <% end %>
+
 

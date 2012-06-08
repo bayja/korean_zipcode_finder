@@ -5,6 +5,7 @@ module KoreanZipcodeFinder
     layout false
     
     def new
+   		render 'new'
     end
 
     def search

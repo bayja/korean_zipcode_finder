@@ -9,13 +9,13 @@ KoreanZipcodeFinder = (function() {
     this.close_modal_handler = $.proxy(this.close_modal_handler, this);
     this.escape_pressed_handler = $.proxy(this.escape_pressed_handler, this);
 
-    $(".address_area .zipcode_01").live('click', this.init );
-    $(".address_area .zipcode_02").live('click', this.init );
-    $(".address_area .find_zipcode_btn").live('click', this.init );
+    $(document).on("click", ".address_area .zipcode_01", this.init);
+    $(document).on("click", ".address_area .zipcode_02", this.init);
+    $(document).on("click", ".address_area .find_zipcode_btn", this.init);
 
-    $(".korean_zipcode_finder_modal_wrapper .find_zipcode_form").live("submit", this.find_zipcode_handler );
-    $(".korean_zipcode_finder_modal_wrapper .zipcode_select").live("click", this.zipcode_selected_handler );
-    $(".korean_zipcode_finder_modal_wrapper .close_modal_popup").live('click', this.close_modal_handler );
+    $(document).on("submit", ".korean_zipcode_finder_modal_wrapper .find_zipcode_form", this.find_zipcode_handler);
+    $(document).on("click", ".korean_zipcode_finder_modal_wrapper .zipcode_select", this.zipcode_selected_handler);
+    $(document).on("click", ".korean_zipcode_finder_modal_wrapper .close_modal_popup", this.close_modal_handler);
   }
 
   KoreanZipcodeFinder.prototype.init = function(e) {
@@ -56,10 +56,10 @@ KoreanZipcodeFinder = (function() {
   
   KoreanZipcodeFinder.prototype.zipcode_selected_handler = function(e) {
     // .data() method를 사용할 경우 zipcode값이 integer로 들어온다. 001이 1로 들어옴zipcode 
-    var zipcode_01 = $(e.target).attr('data-zipcode01');
-    var zipcode_02 = $(e.target).attr('data-zipcode02');
-    var address_01 = $(e.target).data('address01');
-    
+    var zipcode_01 = $(e.target).closest('.zipcode_select').attr('data-zipcode01');
+    var zipcode_02 = $(e.target).closest('.zipcode_select').attr('data-zipcode02');
+    var address_01 = $(e.target).closest('.zipcode_select').data('address01');
+
     this.current_address_area.find(".zipcode_01").val(zipcode_01);
     this.current_address_area.find(".zipcode_02").val(zipcode_02);
     this.current_address_area.find(".address_01").val(address_01);
