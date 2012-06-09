@@ -8,11 +8,13 @@ Korean Zipcode Finder
 사용법 (Usage)
 -----------
 
-* 아직 gem으로 publish되어 있지 않음.
+* gem 설치
 * 인터넷우체국에서 api_key를 발급
 * api_key config설정에 추가
 
 ``` ruby
+gem install korean_zipcode_finder
+
 KoreanZipcodeFinder.configure do |config|
   config.api_key = "#{YOUR_API_KEY}"
 end
