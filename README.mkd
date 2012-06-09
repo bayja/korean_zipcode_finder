@@ -38,6 +38,11 @@ Rails 3 Engine
 *= require korean_zipcode_finder/core
 ```
 
+**twitter bootstrap 호환**
+* twitter bootstrap를 사용하는 경우에는 css파일을 include할 필요 없음.
+* core.css 파일은 twitter bootstrap의 기본 설정 중 필요한 것만 가져온 파일임.
+* (팝업용 스크립트는 bootstrap것을 사용하지 않음)
+
 **html 마크업**
 
 * ".address" class를 가진 wrapper 속에 ".zipcode_01", ".zipcode_02", ".address_01" 클라스를 가진 text_area 생성
