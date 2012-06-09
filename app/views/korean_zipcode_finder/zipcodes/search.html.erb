@@ -1,12 +1,12 @@
 <% if @zipcodes.present? %>
 
   <% @zipcodes.each_with_index do |zipcode, i| %>
-    <tr class="zipcode_select zipcode_node" data-zipcode01="<%= zipcode.zipcode_01 %>" data-zipcode02="<%= zipcode.zipcode_02 %>" data-address01="<%= zipcode.address %>">
+    <tr class="zipcode_node">
     	<td>
     		[<%= zipcode.zipcode_01 %>-<%= zipcode.zipcode_02 %>]
     	</td>
     	<td>
-    		<%= zipcode.original_address %>
+        <%= link_to zipcode.original_address, '#', :class => 'zipcode_select', "data-zipcode01" => zipcode.zipcode_01, "data-zipcode02" => zipcode.zipcode_02, "data-address01" => zipcode.address %>
     	</td>
     </tr>
   <% end %>
