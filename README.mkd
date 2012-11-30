@@ -47,7 +47,7 @@ Rails 3 Engine
 
 **html 마크업**
 
-* ".address" class를 가진 wrapper 속에 ".zipcode_01", ".zipcode_02", ".address_01" 클라스를 가진 text_area 생성
+* ".address_area" class를 가진 wrapper 속에 ".zipcode_01", ".zipcode_02", ".address_01" 클라스를 가진 text_area 생성
 * ".find_zipcode_btn" class를 가진 우편번호 찾기 링크
 
 ``` html

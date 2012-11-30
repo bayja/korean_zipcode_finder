@@ -21,7 +21,7 @@ module KoreanZipcodeFinder
 
     nodes.map do |node|
       original_address = node.css("address").text
-      address = original_address.strip.sub(/\s(\d+)(~?)(\d+)\z/, "")
+      address = original_address.strip.sub(/\s(\d+)(~?)(\d+)(동|)\z/, "")
       zipcode = node.css("postcd").text
       zipcode_01 = zipcode[0..2]
       zipcode_02 = zipcode[-3..-1]
