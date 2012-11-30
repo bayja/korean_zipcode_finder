@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require "korean_zipcode_finder/version"
 require 'korean_zipcode_finder/configuration'
 require 'engine' if defined?(Rails)
