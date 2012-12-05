@@ -62,8 +62,6 @@ Rails 3 Engine
 **적용하기**
 
 ``` javascript
-$(function() {
-	new KoreanZipcodeFinder;
-});
+new KoreanZipcodeFinder;
 ``` 
 
