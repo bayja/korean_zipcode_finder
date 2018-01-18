@@ -13,14 +13,23 @@ require 'nokogiri'
 module KoreanZipcodeFinder
   extend Configuration
   Struct.new("KoreanZipcodeFinder", "zipcode", "zipcode_01", "zipcode_02", "address", "original_address")
-  
-  def self.find_zipcode(dong_name)
+
+  def self.find_zipcode(dong_name, page = 1, per_page = 10)
     keyword = Iconv.new("euc-kr", "utf-8//IGNORE").iconv(dong_name.strip)
 
-    response = Net::HTTP.post_form URI.parse(Configuration::URL), {'regkey' => api_key, 'target' => 'post', 'query' => keyword}
+    response = Net::HTTP.post_form URI.parse(Configuration::URL), {'regkey': api_key, 'target': 'postNew', 'query': keyword, 'currentPage': page, 'countPerPage': per_page }
+
+    page_info = {
+        totalCount: Nokogiri::XML(response.body).css("totalCount").text,
+        totalPage: Nokogiri::XML(response.body).css("totalPage").text,
+        countPerPage: Nokogiri::XML(response.body).css("countPerPage").text,
+        currentPage: Nokogiri::XML(response.body).css("currentPage").text
+    }
+    # Rails.logger.debug page_info
+
     nodes = Nokogiri::XML(response.body).css("item")
 
-    nodes.map do |node|
+    zipcodes = nodes.map do |node|
       original_address = node.css("address").text
       address = original_address.strip.sub(/\s(산|)(\d+)(~?)(\d+)(동|)\z/, "").sub(/\s(\d+)(-?)\((\d+)(~?)(\d+)\)\z/, "")
       zipcode = node.css("postcd").text
@@ -29,5 +38,7 @@ module KoreanZipcodeFinder
 
       Struct::KoreanZipcodeFinder.new(zipcode, zipcode_01, zipcode_02, address, original_address)
     end
+
+    return zipcodes, page_info
   end
 end
