@@ -69,7 +69,7 @@ KoreanZipcodeFinder = (function() {
     this.current_address_area.find(".zipcode_02").val(zipcode_02);
     this.current_address_area.find(".address_01").val(address_01);
 
-    // this.close_modal_handler(e);
+    this.close_modal_handler(e);
   };
 
   KoreanZipcodeFinder.prototype.paging_handler = function(e) {
