@@ -27,7 +27,7 @@ KoreanZipcodeFinder = (function() {
     this.current_address_area = $(e.target).closest(".address_area");
 
     // zipcode modal 띄우기
-    $('body').append( $('<div/>', {'class': 'modal-backdrop'}) );
+    // $('body').append( $('<div/>', {'class': 'modal-backdrop'}) );
     $.get("/korean_zipcode_finder/zipcodes/new", function(html) {
       $("body").append(html);
       $("#zipcodeModalCenter").modal();
@@ -41,7 +41,7 @@ KoreanZipcodeFinder = (function() {
 
   // modal event handers
   KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
-    $(".modal-backdrop").remove();
+    // $(".modal-backdrop").remove();
     $(".korean_zipcode_finder_modal_wrapper").remove();
     $(document).off('keydown');
     e.preventDefault();
