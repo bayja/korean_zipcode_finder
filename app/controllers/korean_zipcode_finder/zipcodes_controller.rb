@@ -3,6 +3,7 @@
 module KoreanZipcodeFinder
 
   class ZipcodesController < ApplicationController
+    skip_before_filter :authenticate_user!	  
     layout false
     
     def new
