@@ -6,7 +6,7 @@ KoreanZipcodeFinder = (function() {
     this.init = $.proxy(this.init, this);
     this.zipcode_selected_handler = $.proxy(this.zipcode_selected_handler, this);
     this.find_zipcode_handler = $.proxy(this.find_zipcode_handler, this);
-    // this.close_modal_handler = $.proxy(this.close_modal_handler, this);
+    this.close_modal_handler = $.proxy(this.close_modal_handler, this);
     // this.escape_pressed_handler = $.proxy(this.escape_pressed_handler, this);
     this.paging_handler = $.proxy(this.paging_handler, this);
 
@@ -17,7 +17,7 @@ KoreanZipcodeFinder = (function() {
 
     $(document).on("submit", ".korean_zipcode_finder_modal_wrapper .find_zipcode_form", this.find_zipcode_handler);
     $(document).on("click", ".korean_zipcode_finder_modal_wrapper .zipcode_select", this.zipcode_selected_handler);
-    // $(document).on("click", ".korean_zipcode_finder_modal_wrapper .close_modal_popup", this.close_modal_handler);
+    $(document).on("click", ".korean_zipcode_finder_modal_wrapper .close_modal_popup", this.close_modal_handler);
     $(document).on("click", ".korean_zipcode_finder_modal_wrapper a.page-link", this.paging_handler);
   }
 
@@ -39,12 +39,12 @@ KoreanZipcodeFinder = (function() {
   };
 
   // modal event handers
-  // KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
-  //   // $(".modal-backdrop").remove();
-  //   $(".korean_zipcode_finder_modal_wrapper").remove();
-  //   $(document).off('keydown');
-  //   e.preventDefault();
-  // };
+  KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
+    // $(".modal-backdrop").remove();
+    $(".korean_zipcode_finder_modal_wrapper").remove();
+    $(document).off('keydown');
+    e.preventDefault();
+  };
 
   // KoreanZipcodeFinder.prototype.escape_pressed_handler = function(e) {
   //   if (e.keyCode == 27 ) { this.close_modal_handler(e) }
