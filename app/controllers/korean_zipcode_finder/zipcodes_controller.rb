@@ -10,9 +10,11 @@ module KoreanZipcodeFinder
     end
 
     def search
-      @zipcodes, page_info = KoreanZipcodeFinder.find_zipcode(params[:dong], params[:currentPage], params[:countPerPage] || 10)
+      currentPage = params[:currentPage] || 1
+      countPerPage = params[:countPerPage] || 10
+      @zipcodes, page_info = KoreanZipcodeFinder.find_zipcode(params[:dong], currentPage, countPerPage)
       pages = [*1..page_info[:totalPage].to_i]
-      @pages = pages.paginate(page: params[:currentPage], per_page: params[:countPerPage])
+      @pages = pages.paginate(page: currentPage, per_page: countPerPage)
     end
   end
 end
