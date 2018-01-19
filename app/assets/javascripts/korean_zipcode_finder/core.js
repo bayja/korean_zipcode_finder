@@ -41,7 +41,7 @@ KoreanZipcodeFinder = (function() {
 
   // modal event handers
   KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
-    // $(".modal-backdrop").remove();
+    $(".modal-backdrop").fadeOut();
     $(".korean_zipcode_finder_modal_wrapper").remove();
     $(document).off('keydown');
     e.preventDefault();
