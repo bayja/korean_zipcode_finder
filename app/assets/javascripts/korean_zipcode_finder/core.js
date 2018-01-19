@@ -27,7 +27,6 @@ KoreanZipcodeFinder = (function() {
     this.current_address_area = $(e.target).closest(".address_area");
 
     // zipcode modal 띄우기
-    // $('body').append( $('<div/>', {'class': 'modal-backdrop'}) );
     $.get("/korean_zipcode_finder/zipcodes/new", function(html) {
       $("body").append(html);
       $("#zipcodeModalCenter").modal();
