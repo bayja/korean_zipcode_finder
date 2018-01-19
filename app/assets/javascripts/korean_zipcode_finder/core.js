@@ -24,7 +24,7 @@ KoreanZipcodeFinder = (function() {
   KoreanZipcodeFinder.prototype.init = function(e) {
     // address_ares 등록
     this.current_address_area = $(e.target).closest(".address_area");
-    
+
     // zipcode modal 띄우기
     $('body').append( $('<div/>', {'class': 'modal-backdrop'}) );
     $.get("/korean_zipcode_finder/zipcodes/new", function(html) {
@@ -32,12 +32,12 @@ KoreanZipcodeFinder = (function() {
       $("#zipcodeModalCenter").modal();
     });
     $("#dong").focus();
-    
+
     // escape key handler
     $(document).on('keydown', this.escape_pressed_handler );
     e.preventDefault();
   };
-  
+
   // modal event handers
   KoreanZipcodeFinder.prototype.close_modal_handler = function(e) {
     $(".modal-backdrop").remove();
@@ -45,7 +45,7 @@ KoreanZipcodeFinder = (function() {
     $(document).off('keydown');
     e.preventDefault();
   };
-  
+
   KoreanZipcodeFinder.prototype.escape_pressed_handler = function(e) {
     if (e.keyCode == 27 ) { this.close_modal_handler(e) }
   };
@@ -56,7 +56,7 @@ KoreanZipcodeFinder = (function() {
     });
     e.preventDefault();
   };
-  
+
   KoreanZipcodeFinder.prototype.zipcode_selected_handler = function(e) {
     // .data() method를 사용할 경우 zipcode값이 integer로 들어온다. 001이 1로 들어옴
     var zipcode    = $(e.target).attr('data-zipcode');
@@ -87,14 +87,11 @@ KoreanZipcodeFinder = (function() {
         countPerPage = countPerPage.split('=')[1]
     }
 
-    // alert("page clicked : " + currentPage);
-    // console.log(zipcode_form);
     $.get(zipcode_form.attr('action') + "?currentPage=" + currentPage + "&countPerPage=" + countPerPage, zipcode_form.serialize(), function(html) {
         $(".zipcode_list_box").empty().append(html);
     });
     e.preventDefault();
   };
-  
-  return KoreanZipcodeFinder; 
-})();
 
+  return KoreanZipcodeFinder;
+})();

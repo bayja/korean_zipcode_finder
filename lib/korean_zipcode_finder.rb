@@ -25,7 +25,6 @@ module KoreanZipcodeFinder
         countPerPage: Nokogiri::XML(response.body).css("countPerPage").text,
         currentPage: Nokogiri::XML(response.body).css("currentPage").text
     }
-    # Rails.logger.debug page_info
 
     nodes = Nokogiri::XML(response.body).css("item")
 
