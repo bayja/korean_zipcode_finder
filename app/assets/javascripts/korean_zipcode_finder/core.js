@@ -18,7 +18,7 @@ KoreanZipcodeFinder = (function() {
     $(document).on("submit", ".korean_zipcode_finder_modal_wrapper .find_zipcode_form", this.find_zipcode_handler);
     $(document).on("click", ".korean_zipcode_finder_modal_wrapper .zipcode_select", this.zipcode_selected_handler);
     $(document).on("click", ".korean_zipcode_finder_modal_wrapper .close_modal_popup", this.close_modal_handler);
-    // $(document).on("blur", ".korean_zipcode_finder_modal_wrapper", this.close_modal_handler);
+    $(document).on("hide", ".korean_zipcode_finder_modal_wrapper", this.close_modal_handler);
     $(document).on("click", ".korean_zipcode_finder_modal_wrapper a.page-link", this.paging_handler);
   }
 
