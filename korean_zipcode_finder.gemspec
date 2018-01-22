@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   
   s.add_runtime_dependency 'nokogiri'
   s.add_runtime_dependency 'bootstrap', '~> 4.0.0'
-  s.add_runtime_dependency 'simple_form'
-  s.add_runtime_dependency 'will_paginate'
+  s.add_runtime_dependency 'will_paginate-bootstrap'
 
 end
