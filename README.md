@@ -11,7 +11,7 @@ Korean Zipcode Finder
 * Gemfile에 추가한 후 `bundle install` 한다.
 
   ```ruby
-  gem 'korean_zipcode_finder', '~> 0.2.1'
+  gem 'korean_zipcode_finder', '~> 0.2.2'
   ```
 
 * 인터넷우체국에서 api_key를 신청하여 발급받음 (https://biz.epost.go.kr/ui/index.jsp)
