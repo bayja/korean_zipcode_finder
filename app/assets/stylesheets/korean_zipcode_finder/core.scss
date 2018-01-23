@@ -4,6 +4,9 @@
     padding: 0;
     ul.pagination {
       margin: 0;
+      div.pagination {
+        margin: 1em auto;
+      }
     }
   }
 }
