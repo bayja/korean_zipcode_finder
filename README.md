@@ -93,18 +93,14 @@
   ```html
   <div class="address_area">
     <div class='form-group'>
-      <%= f.label :zipcode %><br />
-      <input type='text' name='admin_training_center[zipcode]' id='admin_training_center_zipcode' class='zipcode form-control col-3 col-sm-2 col-md-1 d-inline' value="<%= f.object.zipcode %>" placeholder='99999'>
+      <%= p.label :zip_code %><br />
+      <%= p.text_field :zip_code, placeholder: '99999', class: 'zipcode form-control col-4 col-sm-3 col-md-3 d-inline'%>
       <%= link_to '우편번호 찾기', '#', :class => "find_zipcode_btn btn btn-primary ml-2" %>
     </div>
-    <%= f.label :address %><br />
-    <div class='row'>
-      <div class='col-6'>
-        <%= f.input :address_01, label: false, placeholder: '메인주소', input_html: {class: "address_01"} %>
-      </div>
-      <div class='col-6'>
-        <%= f.input :address_02, label: false, placeholder: '상세주소', input_html: {class: "address_02"} %>
-      </div>
+    <div class="form-group">
+      <%= p.label :address_1 %><br />
+      <%= p.text_field :address_1, placeholder: '메인주소', class: "address_01 form-control mb-2" %>
+      <%= p.text_field :address_2, placeholder: '상세주소', class: "address_02 form-control" %>
     </div>
   </div>
   ```
