@@ -8,7 +8,7 @@
             <%#= f.hidden_field :currentPage %>
             <%#= f.hidden_field :countPerPage %>
             <%= f.text_field :dong, placeholder: "동/읍/면", id: 'dong', class: 'form-control mr-2', autofocus: true %>
-            <%= f.submit '우편번호 찾기', data: { disable_with: false }, class: "btn btn-primary find_zipcode_submit"  %>
+            <%= f.submit '검색', data: { disable_with: false }, class: "btn btn-primary find_zipcode_submit"  %>
           <% end %>
           <button type="button" class="close close_modal_popup ml-0" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary close_modal_popup" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary close_modal_popup" data-dismiss="modal">닫기</button>
         </div>
       </div>
     </div>
