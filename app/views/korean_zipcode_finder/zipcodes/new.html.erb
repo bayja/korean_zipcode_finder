@@ -1,25 +1,29 @@
 <div class="korean_zipcode_finder_modal_wrapper">
-	<div class="zipcode_box modal">
-		<div class="modal-header">
-			<button class="close_modal_popup close" data-dismiss="modal" type="button">×</button>
-			<h3>우편번호 찾기</h3>
-			<%= form_tag("/korean_zipcode_finder/zipcodes/search", :method => 'get', :class => "find_zipcode_form well form-inline") do %>
-			  <%= label_tag "동/읍/면" %>
-			  <%= text_field_tag "dong" %>
-			  <%= submit_tag '우편번호 찾기', :class => "btn btn-primary find_zipcode_submit" %>
-			<% end %>
-		</div>
+  <div class="zipcode_box modal fade" id="zipcodeModalCenter" tabindex="-1" role="dialog" aria-labelledby="zipcodeModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="zipcodeModalCenterLongTitle" style="margin-top:2px; ">우편번호 찾기</h4>
+          <%= form_with url: "/korean_zipcode_finder/zipcodes/search", method: 'get', local: true, class: "find_zipcode_form form-inline" do |f| %>
+            <%#= f.hidden_field :currentPage %>
+            <%#= f.hidden_field :countPerPage %>
+            <%= f.text_field :dong, placeholder: "동/읍/면", id: 'dong', class: 'form-control mr-2', autofocus: true %>
+            <%= f.submit '검색', data: { disable_with: false }, class: "btn btn-primary find_zipcode_submit"  %>
+          <% end %>
+          <button type="button" class="close close_modal_popup ml-0" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
 
-		<div class="modal-body">
-			<table class="table table-striped">
-				<tbody class="zipcode_list_box">
-					<%#= 'place for search list' %>
-				</tbody>
-			</table>
-	 </div>
-
-	 <div class="modal-footer">
-	 	<a class="btn close_modal_popup" data-dismiss="modal" href="#">닫기</a>
-	 </div>
-	</div>
+        </div>
+        <div class="modal-body">
+          <div class="zipcode_list_box">
+            <%#= 'place for search list' %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary close_modal_popup" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

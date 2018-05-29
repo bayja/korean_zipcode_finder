@@ -1,16 +1,31 @@
 <% if @zipcodes.present? %>
-
-  <% @zipcodes.each_with_index do |zipcode, i| %>
-    <tr class="zipcode_node">
-    	<td>
-    		[<%= zipcode.zipcode_01 %>-<%= zipcode.zipcode_02 %>]
-    	</td>
-    	<td>
-        <%= link_to zipcode.original_address, '#', :class => 'zipcode_select', "data-zipcode01" => zipcode.zipcode_01, "data-zipcode02" => zipcode.zipcode_02, "data-address01" => zipcode.address %>
-    	</td>
-    </tr>
-  <% end %>
-
+	<table class="table table-striped">
+		<tbody class="zipcode_list_box">
+		<% @zipcodes.each_with_index do |zipcode, i| %>
+			<tr class="zipcode_node">
+				<td>
+					[<%= zipcode.zipcode %>]
+				</td>
+				<td>
+					<%= link_to zipcode.original_address, '#',
+											class: 'zipcode_select',
+											data: {
+													zipcode: zipcode.zipcode,
+													zipcode01: zipcode.zipcode_01,
+													zipcode02: zipcode.zipcode_02,
+													address01: zipcode.address
+											}
+					%>
+				</td>
+			</tr>
+		<% end %>
+			<tr>
+				<td colspan="2" class='paging_info'>
+					<%= will_paginate @pages, outer_windows: 1,  inner_window: 1 %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 <% else %>
 
   <tr class="no_zipcode_found">
@@ -20,5 +35,3 @@
   </tr>
 
 <% end %>
-
-

@@ -1,0 +1,12 @@
+// 주소검색 결과 페이징
+.zipcode_list_box {
+  td.paging_info {
+    padding: 0;
+    ul.pagination {
+      margin: 0;
+      div.pagination {
+        margin: 1em auto;
+      }
+    }
+  }
+}

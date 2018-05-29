@@ -19,4 +19,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_runtime_dependency 'nokogiri'
+  s.add_runtime_dependency 'iconv'
+  s.add_runtime_dependency 'bootstrap', '~> 4.1.0'
+  s.add_runtime_dependency 'will_paginate-bootstrap'
+
 end
